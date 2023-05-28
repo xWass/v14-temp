@@ -1,0 +1,14 @@
+{
+  "name": "djs-v14",
+  "version": "1.0.0",
+  "description": "V14 template for discord.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "discord.js": "^14.6.0",
+    "dotenv": "^16.0.3",
+    "mongodb": "^4.11.0"
+  }
+}

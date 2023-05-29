@@ -5,7 +5,6 @@ process.on('unhandledRejection', error => {
 const { Client, Collection, version, GatewayIntentBits, ActivityType } = require('discord.js');
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
-const { MongoClient } = require("mongodb");
 const fs = require('fs');
 const path = require("path");
 require('dotenv').config({ path: '.env' })
@@ -24,7 +23,7 @@ client.commands = new Collection()
 client.on("ready", async () => {
 	console.log(`Ready! ${new Date(Date.now())}`)
 
-	await databaseConnect(); //connect to db before loading commands
+	// await databaseConnect(); //connect to db before loading commands
 
 	LoadEvents();
 	LoadCommands();
@@ -48,6 +47,10 @@ client.on("ready", async () => {
 	}
 });
 
+/*
+// db stuff dont need yet
+
+const { MongoClient } = require("mongodb");
 const databaseConnect = async () => {
 	const mongoClient = new MongoClient(process.env.MONGO_URL)
 	await mongoClient.connect()
@@ -55,9 +58,9 @@ const databaseConnect = async () => {
 	client.db = database;
 	console.log(`Connected to database!`)
 }
-
+*/
 client.on("debug", function(info){
-	console.log(`debug -> ${info}`);
+	console.log(`Debug -> ${info}`);
 });
 
 function LoadEvents() {
